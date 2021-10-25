@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:camunda="http://camunda.org/schema/1.0/dmn" id="loan-decision" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="4.11.0">
+  <decision id="loan_approval_decision" name="Loan Approval Decision">
+    <decisionTable id="DecisionTable_0ex3uzg" hitPolicy="FIRST">
+      <input id="Input_1" camunda:inputVariable="age">
+        <inputExpression id="InputExpression_1" typeRef="string">
+          <text>Age</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1t3m3hp" camunda:inputVariable="job">
+        <inputExpression id="LiteralExpression_1v4ejrw" typeRef="boolean">
+          <text>JOB</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0hysfay" camunda:inputVariable="house">
+        <inputExpression id="LiteralExpression_1xr2iel" typeRef="boolean">
+          <text>House</text>
+        </inputExpression>
+      </input>
+      <output id="Output_1" name="Status" typeRef="boolean" />
+      <rule id="DecisionRule_04sgov1">
+        <inputEntry id="UnaryTests_19idt5d">
+          <text>"Young"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_174jxhw">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_073ooqv">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1a0apnc">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0prselz">
+        <inputEntry id="UnaryTests_0jaxuoh">
+          <text>"Young"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1qpikyu">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1bvu7tx">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_14y3cus">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_12ume2o">
+        <inputEntry id="UnaryTests_0skkj7x">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_06s8jtv">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1nh26rb">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_16he7nl">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape dmnElementRef="loan_approval_decision">
+        <dc:Bounds height="80" width="180" x="160" y="100" />
+      </dmndi:DMNShape>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>
