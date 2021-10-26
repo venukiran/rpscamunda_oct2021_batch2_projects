@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:camunda="http://camunda.org/schema/1.0/dmn" id="loan-decision" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="4.11.0">
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:camunda="http://camunda.org/schema/1.0/dmn" id="loan-decision" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="4.9.0">
   <decision id="loan_approval_decision" name="Loan Approval Decision">
     <decisionTable id="DecisionTable_0ex3uzg" hitPolicy="FIRST">
       <input id="Input_1" camunda:inputVariable="age">
@@ -17,6 +17,11 @@
           <text>House</text>
         </inputExpression>
       </input>
+      <input id="InputClause_1d8uw19" camunda:inputVariable="cibilScore">
+        <inputExpression id="LiteralExpression_0n96cof" typeRef="integer">
+          <text>CIBIL Score</text>
+        </inputExpression>
+      </input>
       <output id="Output_1" name="Status" typeRef="boolean" />
       <rule id="DecisionRule_04sgov1">
         <inputEntry id="UnaryTests_19idt5d">
@@ -27,6 +32,9 @@
         </inputEntry>
         <inputEntry id="UnaryTests_073ooqv">
           <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0w02auk">
+          <text>[500..700]</text>
         </inputEntry>
         <outputEntry id="LiteralExpression_1a0apnc">
           <text>true</text>
@@ -42,6 +50,9 @@
         <inputEntry id="UnaryTests_1bvu7tx">
           <text>false</text>
         </inputEntry>
+        <inputEntry id="UnaryTests_0twiou8">
+          <text>&lt;=300</text>
+        </inputEntry>
         <outputEntry id="LiteralExpression_14y3cus">
           <text>false</text>
         </outputEntry>
@@ -54,6 +65,9 @@
           <text></text>
         </inputEntry>
         <inputEntry id="UnaryTests_1nh26rb">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0tibznp">
           <text></text>
         </inputEntry>
         <outputEntry id="LiteralExpression_16he7nl">
