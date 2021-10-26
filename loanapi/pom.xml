@@ -127,7 +127,7 @@
 				<artifactId>spring-boot-devtools</artifactId>
 				<scope>runtime</scope>
 				<optional>true</optional>
-			</dependency>
+	</dependency>
 	
 	 <dependency>
 	    <groupId>org.codehaus.groovy</groupId>
