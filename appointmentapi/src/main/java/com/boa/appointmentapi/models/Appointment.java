@@ -32,4 +32,5 @@ public class Appointment {
 	@Column(name="Reason")
 	private String reason;
 	
+	
 }

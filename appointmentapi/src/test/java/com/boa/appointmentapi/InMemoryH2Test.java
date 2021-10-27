@@ -11,6 +11,8 @@ import org.junit.ClassRule;
 import org.junit.Rule;
 import org.junit.Test;
 
+import com.boa.appointmentapi.delegates.EmailDelegate;
+
 import static org.camunda.bpm.engine.test.assertions.ProcessEngineTests.*;
 import static org.junit.Assert.*;
 
@@ -37,7 +39,7 @@ public class InMemoryH2Test {
   public void testHappyPath() {
     // Drive the process by API and assert correct behavior by camunda-bpm-assert
 
-    Mocks.register("logger", new LoggerDelegate());
+    Mocks.register("logger", new EmailDelegate());
 
     ProcessInstance processInstance = processEngine().getRuntimeService()
         .startProcessInstanceByKey(ProcessConstants.PROCESS_DEFINITION_KEY);
