@@ -56,10 +56,6 @@
     </bpmn:endEvent>
     <bpmn:sequenceFlow id="Flow_1528cj7" sourceRef="SaveAppointmentTask" targetRef="ShowAppointments" />
     <bpmn:sequenceFlow id="Flow_047u1nb" sourceRef="ShowAppointments" targetRef="Event_0ki40dv" />
-    <bpmn:userTask id="ShowAppointments" name="Show all Appointments to RM" camunda:assignee="demo">
-      <bpmn:incoming>Flow_1528cj7</bpmn:incoming>
-      <bpmn:outgoing>Flow_047u1nb</bpmn:outgoing>
-    </bpmn:userTask>
     <bpmn:sequenceFlow id="Flow_0peph39" sourceRef="UpdatedScheduleTask" targetRef="Gateway_1u9wecl" />
     <bpmn:eventBasedGateway id="Gateway_1u9wecl">
       <bpmn:incoming>Flow_0peph39</bpmn:incoming>
@@ -84,6 +80,10 @@
     </bpmn:endEvent>
     <bpmn:sequenceFlow id="Flow_1kp4wmx" sourceRef="UpdatedScheduleNotWillingMessage" targetRef="Event_1e225j9" />
     <bpmn:sequenceFlow id="Flow_1c7jszb" sourceRef="RMNotWillingMessage" targetRef="EndEvent" />
+    <bpmn:serviceTask id="ShowAppointments" name="Show all Appointments to RM" camunda:delegateExpression="#{receiveappointments}">
+      <bpmn:incoming>Flow_1528cj7</bpmn:incoming>
+      <bpmn:outgoing>Flow_047u1nb</bpmn:outgoing>
+    </bpmn:serviceTask>
     <bpmn:textAnnotation id="TextAnnotation_0yzeqgt">
       <bpmn:text>Customer Sends Request</bpmn:text>
     </bpmn:textAnnotation>
@@ -151,7 +151,7 @@
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_047u1nb_di" bpmnElement="Flow_047u1nb">
         <di:waypoint x="1320" y="440" />
-        <di:waypoint x="1372" y="440" />
+        <di:waypoint x="1442" y="440" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_1528cj7_di" bpmnElement="Flow_1528cj7">
         <di:waypoint x="1140" y="440" />
@@ -224,12 +224,6 @@
       <bpmndi:BPMNShape id="Activity_17uboyb_di" bpmnElement="SaveAppointmentTask" bioc:stroke="#fb8c00" bioc:fill="#ffe0b2" color:background-color="#ffe0b2" color:border-color="#fb8c00">
         <dc:Bounds x="1040" y="400" width="100" height="80" />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Event_0ki40dv_di" bpmnElement="Event_0ki40dv">
-        <dc:Bounds x="1372" y="422" width="36" height="36" />
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Activity_1nvk85w_di" bpmnElement="ShowAppointments" bioc:stroke="#1e88e5" bioc:fill="#bbdefb" color:background-color="#bbdefb" color:border-color="#1e88e5">
-        <dc:Bounds x="1220" y="400" width="100" height="80" />
-      </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Gateway_1w8es4s_di" bpmnElement="Gateway_1u9wecl" bioc:stroke="#fb8c00" bioc:fill="#ffe0b2" color:background-color="#ffe0b2" color:border-color="#fb8c00">
         <dc:Bounds x="1065" y="135" width="50" height="50" />
       </bpmndi:BPMNShape>
@@ -241,6 +235,9 @@
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Event_1e225j9_di" bpmnElement="Event_1e225j9">
         <dc:Bounds x="1272" y="142" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1okg61l_di" bpmnElement="ShowAppointments" bioc:stroke="#1e88e5" bioc:fill="#bbdefb" color:background-color="#bbdefb" color:border-color="#1e88e5">
+        <dc:Bounds x="1220" y="400" width="100" height="80" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="TextAnnotation_0yzeqgt_di" bpmnElement="TextAnnotation_0yzeqgt" bioc:stroke="#8e24aa" bioc:fill="#e1bee7" color:background-color="#e1bee7" color:border-color="#8e24aa">
         <dc:Bounds x="180" y="440" width="100" height="41" />
@@ -265,6 +262,9 @@
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="TextAnnotation_1d2wqws_di" bpmnElement="TextAnnotation_1d2wqws" bioc:stroke="#8e24aa" bioc:fill="#e1bee7" color:background-color="#e1bee7" color:border-color="#8e24aa">
         <dc:Bounds x="1160" y="240" width="100" height="30" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_0ki40dv_di" bpmnElement="Event_0ki40dv">
+        <dc:Bounds x="1442" y="422" width="36" height="36" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Event_13blzg0_di" bpmnElement="UpdateScheduleMessageTask" bioc:stroke="#43a047" bioc:fill="#c8e6c9" color:background-color="#c8e6c9" color:border-color="#43a047">
         <dc:Bounds x="842" y="382" width="36" height="36" />
