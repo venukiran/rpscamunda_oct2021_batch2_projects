@@ -1,5 +1,6 @@
 package com.boa.appointmentapi.models;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
 import javax.persistence.Column;
@@ -23,7 +24,7 @@ import lombok.Data;
 @Entity
 @Table(name="Appointment")
 @Data
-public class Appointment {
+public class Appointment implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

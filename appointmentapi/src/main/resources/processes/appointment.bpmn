@@ -52,10 +52,10 @@
       <bpmn:outgoing>Flow_1528cj7</bpmn:outgoing>
     </bpmn:serviceTask>
     <bpmn:endEvent id="Event_0ki40dv">
-      <bpmn:incoming>Flow_047u1nb</bpmn:incoming>
+      <bpmn:incoming>Flow_1fyt2j0</bpmn:incoming>
     </bpmn:endEvent>
     <bpmn:sequenceFlow id="Flow_1528cj7" sourceRef="SaveAppointmentTask" targetRef="ShowAppointments" />
-    <bpmn:sequenceFlow id="Flow_047u1nb" sourceRef="ShowAppointments" targetRef="Event_0ki40dv" />
+    <bpmn:sequenceFlow id="Flow_047u1nb" sourceRef="ShowAppointments" targetRef="Activity_1crnej6" />
     <bpmn:sequenceFlow id="Flow_0peph39" sourceRef="UpdatedScheduleTask" targetRef="Gateway_1u9wecl" />
     <bpmn:eventBasedGateway id="Gateway_1u9wecl">
       <bpmn:incoming>Flow_0peph39</bpmn:incoming>
@@ -84,6 +84,11 @@
       <bpmn:incoming>Flow_1528cj7</bpmn:incoming>
       <bpmn:outgoing>Flow_047u1nb</bpmn:outgoing>
     </bpmn:serviceTask>
+    <bpmn:sequenceFlow id="Flow_1fyt2j0" sourceRef="Activity_1crnej6" targetRef="Event_0ki40dv" />
+    <bpmn:userTask id="Activity_1crnej6" name="Show All Appointments to RM" camunda:formKey="embedded:/forms/readappointment-form.html">
+      <bpmn:incoming>Flow_047u1nb</bpmn:incoming>
+      <bpmn:outgoing>Flow_1fyt2j0</bpmn:outgoing>
+    </bpmn:userTask>
     <bpmn:textAnnotation id="TextAnnotation_0yzeqgt">
       <bpmn:text>Customer Sends Request</bpmn:text>
     </bpmn:textAnnotation>
@@ -151,7 +156,7 @@
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_047u1nb_di" bpmnElement="Flow_047u1nb">
         <di:waypoint x="1320" y="440" />
-        <di:waypoint x="1442" y="440" />
+        <di:waypoint x="1360" y="440" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_1528cj7_di" bpmnElement="Flow_1528cj7">
         <di:waypoint x="1140" y="440" />
@@ -190,6 +195,10 @@
         <bpmndi:BPMNLabel>
           <dc:Bounds x="228" y="95" width="90" height="20" />
         </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1fyt2j0_di" bpmnElement="Flow_1fyt2j0">
+        <di:waypoint x="1460" y="440" />
+        <di:waypoint x="1532" y="440" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNShape id="EndEvent_0fkea3f_di" bpmnElement="EndEvent">
         <dc:Bounds x="732" y="602" width="36" height="36" />
@@ -264,7 +273,10 @@
         <dc:Bounds x="1160" y="240" width="100" height="30" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Event_0ki40dv_di" bpmnElement="Event_0ki40dv">
-        <dc:Bounds x="1442" y="422" width="36" height="36" />
+        <dc:Bounds x="1532" y="422" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1i0z6if_di" bpmnElement="Activity_1crnej6" bioc:stroke="#1e88e5" bioc:fill="#bbdefb" color:background-color="#bbdefb" color:border-color="#1e88e5">
+        <dc:Bounds x="1360" y="400" width="100" height="80" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Event_13blzg0_di" bpmnElement="UpdateScheduleMessageTask" bioc:stroke="#43a047" bioc:fill="#c8e6c9" color:background-color="#c8e6c9" color:border-color="#43a047">
         <dc:Bounds x="842" y="382" width="36" height="36" />

@@ -50,7 +50,7 @@ $scope.reject = function($event) {
     camForm.on('form-loaded', function() {
       // variables that are not already used in cam-variable bindings
       // must be fetched explicitly
-      camForm.variableManager.fetchVariable('name');
+      camForm.variableManager.fetchVariable('appointments');
 //      camForm.variableManager.fetchVariable('');
     });
 
@@ -63,8 +63,8 @@ $scope.reject = function($event) {
   <h3>Process Variables</h3>
   <table class="table table-striped">
     <tr>
-      <td>Name</td>
-      <td>{{variables.name.value}}</td>
+      <td>Customer Id</td>
+      <td>{{variables.customerId.value}}</td>
     </tr>
 <!--
     <tr>
@@ -74,8 +74,8 @@ $scope.reject = function($event) {
 -->
     <tr ng-repeat="variable in variables">
       <!-- TODO ignore file and object variables -->
-      <td>{{variable.name}}</td>
-      <td>{{variable.value}}</td>
+      <td>{{variable.appointmentId}}</td>
+      <td>{{variable.doa}}</td>
     </tr>
   </table>
 

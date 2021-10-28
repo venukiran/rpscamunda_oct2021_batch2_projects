@@ -59,7 +59,7 @@ public class ReceivaAllAppointmentsDelegate implements JavaDelegate {
 		 appointmentList.stream()
 		        .forEach((appointment) -> System.out.println(appointment.getAppointmentId() ));
 		    System.out.println("List size is " +appointmentList.size());
-		// execution.setVariable("appointments", appointmentList);
+		 execution.setVariable("appointments", appointmentList);
 
   }
   
