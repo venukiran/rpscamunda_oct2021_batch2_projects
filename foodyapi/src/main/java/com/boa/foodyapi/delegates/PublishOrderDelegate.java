@@ -1,4 +1,4 @@
-package com.boa.foodyapi;
+package com.boa.foodyapi.delegates;
 
 import java.util.logging.Logger;
 
@@ -11,14 +11,14 @@ import org.springframework.stereotype.Component;
  * illustrating how a Java Delegate can be used
  * from within a BPMN 2.0 Service Task.
  */
-@Component("logger")
-public class LoggerDelegate implements JavaDelegate {
+@Component("publishorder")
+public class PublishOrderDelegate implements JavaDelegate {
  
-  private final Logger LOGGER = Logger.getLogger(LoggerDelegate.class.getName());
+  private final Logger LOGGER = Logger.getLogger(PublishOrderDelegate.class.getName());
   
   public void execute(DelegateExecution execution) throws Exception {
     
-    LOGGER.info("\n\n  ... LoggerDelegate invoked by "
+    LOGGER.info("\n\n  ... Publish Order Delegate invoked by "
             + "activityName='" + execution.getCurrentActivityName() + "'"
             + ", activityId=" + execution.getCurrentActivityId()
             + ", processDefinitionId=" + execution.getProcessDefinitionId()
