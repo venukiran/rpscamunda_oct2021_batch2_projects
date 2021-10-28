@@ -1,7 +1,7 @@
 <!--
 You can use this form through Camunda Tasklist
 by setting the formKey of a BPMN User Task to:
-embedded:/forms/readappointment-form.html
+embedded:/forms/task-form-pdf-viewer.html
 -->
 
 <form role="form">
@@ -50,7 +50,7 @@ $scope.reject = function($event) {
     camForm.on('form-loaded', function() {
       // variables that are not already used in cam-variable bindings
       // must be fetched explicitly
-    //  camForm.variableManager.fetchVariable('appointments');
+      camForm.variableManager.fetchVariable('name');
 //      camForm.variableManager.fetchVariable('');
     });
 
@@ -62,20 +62,66 @@ $scope.reject = function($event) {
   </script>
   <h3>Process Variables</h3>
   <table class="table table-striped">
-    
-
-   
+    <tr>
+      <td>Name</td>
+      <td>{{variables.name.value}}</td>
+    </tr>
+<!--
+    <tr>
+      <td></td>
+      <td>{{variables..value}}</td>
+    </tr>
+-->
     <tr ng-repeat="variable in variables">
       <!-- TODO ignore file and object variables -->
-      <td>{{variable}}</td>
-   
+      <td>{{variable.name}}</td>
+      <td>{{variable.value}}</td>
     </tr>
   </table>
 
+  <!-- file download -->  
+  <div class="form-group">
+    <label class="control-label">Document</label>
+    <div class="controls">
+      <a cam-file-download="adharCardDoc"></a>
+    </div>
+  </div>
+
+
+  </div>
+  <!-- 2nd column -->
+  <div class="col-md-8">
   
+    <!-- PDF viewer -->  
+  	<object data="{{contextPath}}/file-variable?taskId={{taskId}}&variableName=adharCardDoc" type="application/pdf" style="width:100%; height:585px;">
+		 <p>
+		 	It appears you don't have a PDF plugin for this browser. No biggie... you can 
+		 	<a href="{{contextPath}}/file-variable?taskId={{taskId}}&variableName=adharCardDoc"> click here to download the PDF file.</a>
+		 </p>
+ 	</object>
+    <script cam-script type="text/form-script">
+      camForm.on('form-loaded', function() {
+        $scope.contextPath = camForm.formUrl.split("/forms/")[0];
+        $scope.taskId = camForm.taskId;
+      });
+    </script>
+
+  <!-- end two-column layout -->
+  </div>
 </div>
 </div>  
- 
+ <!--  
+<div class="container-fluid">
+<div class="row">
+  <div class="col-md-4">
+<button ng-click="accept($event)"   class="btn btn-success" >Accept</button>
+<button ng-click="reject($event)"  class="btn btn-warning">Reject</button>
+
+</div>
+</div>
+</div>
+-->
+
   <!-- checkbox -->
   <div class="form-group">
     <label for="approved" class="col-sm-2 control-label">Approve?</label>
