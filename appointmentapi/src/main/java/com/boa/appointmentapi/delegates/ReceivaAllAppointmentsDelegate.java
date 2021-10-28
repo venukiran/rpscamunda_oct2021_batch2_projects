@@ -19,11 +19,12 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
 import com.boa.appointmentapi.models.Appointment;
+//import com.boa.appointmentapi.models.Appointment;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.github.wnameless.json.flattener.JsonFlattener;
+//import com.github.wnameless.json.flattener.JsonFlattener;
 
-import net.minidev.json.JSONObject;
-import net.minidev.json.parser.JSONParser;
+//import net.minidev.json.JSONObject;
+//import net.minidev.json.parser.JSONParser;
 
 /**
  * This is an easy adapter implementation
@@ -58,7 +59,7 @@ public class ReceivaAllAppointmentsDelegate implements JavaDelegate {
 		 appointmentList.stream()
 		        .forEach((appointment) -> System.out.println(appointment.getAppointmentId() ));
 		    System.out.println("List size is " +appointmentList.size());
-		 execution.setVariable("appointments", appointmentList);
+		// execution.setVariable("appointments", appointmentList);
 
   }
   
