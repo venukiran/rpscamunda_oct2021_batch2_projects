@@ -58,7 +58,7 @@ private String url;
     //delegate to rest service
     ResponseEntity<?> response=restTemplate.
 		      postForEntity(url+"/orders",request, String.class);
-    LOGGER.info(""+response.toString());
+    LOGGER.info("SavedOrder-->"+response.toString());
     
     Map<String,Object> data = parseString(response.getBody().toString());
     for(String key:data.keySet()) {

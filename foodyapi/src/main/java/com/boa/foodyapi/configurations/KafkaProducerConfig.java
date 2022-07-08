@@ -15,10 +15,6 @@ import org.springframework.kafka.support.serializer.JsonSerializer;
 
 import com.boa.foodyapi.models.Order;
 
-
-
-
-
 @Configuration
 public class KafkaProducerConfig 
 {
